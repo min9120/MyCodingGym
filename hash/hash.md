@@ -17,7 +17,10 @@ key와 배열의 index를 이용하여 저장하는 자료구조이다.
 = map, dictionary ...
 value가 곧 index가 되는 것임
 hashing 과정에서 key에 따라 모두 다른 hash code 가 나오는 것이 기본
+<br/>
+
 <img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FceKgGz%2FbtqAUvLYrPN%2FDMVl0lwN8tA2hobFxqHcf0%2Fimg.png" width = "500px">
+<br/>
 
 원래 데이터 값( key ) -> Hash Function -> Hash code -> Hash code를 배열의 index로 사용 -> 해당하는 index에 데이터 삽입
 
@@ -31,15 +34,19 @@ hash로 암호화 한 데이터는 **복호화가 불가능**하다 (단방향)
 - **Separating Chining -Linked List, Tree(Red-Black Tree)**
   Linked List 뿐만 아니라 Tree를 사용하기도 한다. 두 개를 사용하는 기준은 data가 6개 이하면 linked list, 8개 이상이면 tree를 사용한다.
   ( 7개일 때 데이터를 삭제하면 linked list, 추가하면 tree로 바꿔야한다. 이때 바꿀 때 오버헤드가 있기 때문에 기준이 6과 8이다. )
-  \*overhead : 어떤 처리를 하기 위해 들어가는 간접적인 처리 시간/메모리 등을 말한다.
-  <img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdzUUKL%2FbtqAU5TNqPb%2F57l6XNBJBLFlL1xcXCePq1%2Fimg.png" width = "500px">
+  \*overhead : 어떤 처리를 하기 위해 들어가는 간접적인 처리 시간/메모리 등을 말한다.<br/>
+  
+  <img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdzUUKL%2FbtqAU5TNqPb%2F57l6XNBJBLFlL1xcXCePq1%2Fimg.png" width = "500px"><br/>
+  
   index가 가리키고 있는 linked list에 노드를 추가하여 값을 삽입한다.
   데이터 탐색 : index가 가리키고 있는 linked list를 선형 검색하여 해당 key에 대한 data 반환
   추가할 수 있는 데이터 수의 제약이 적다.
 
 - **Open Addressing -Linear Probing, Quadratic Probing, Double hashing**
-  linked list와 같은 추가적인 메모리 공간을 사용하지 않고, hash table array의 빈공간을 사용하는 방법이다.
-  <img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FALk2h%2FbtqAWxowTOl%2FoWIIt6DZ7jdYBd3jngUqWk%2Fimg.png" width = "500px">
+  linked list와 같은 추가적인 메모리 공간을 사용하지 않고, hash table array의 빈공간을 사용하는 방법이다.<br/>
+  
+  <img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FALk2h%2FbtqAWxowTOl%2FoWIIt6DZ7jdYBd3jngUqWk%2Fimg.png" width = "500px"><br/>
+  
   충돌이 발생하는 해당 index 뒤에 있는 빈공간을 찾아서 데이터를 넣는다.
   탐색 : sandra 에 대해 검색했을 때 index가 152인데 실제 index는 153이기 때문에 해당 index 뒤로 일치할 때 까지 검색한다.
   삭제 : 더미 노드를 넣어 검색할 때 다음 index까지 검색을 연결해주는 역할을 해야한다 ( 삭제가 어려움 )
