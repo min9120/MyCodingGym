@@ -27,8 +27,13 @@ function solution(clothes) {
       hash[clothes[i][1]].push(clothes[i][0]);
     } else hash[clothes[i][1]].push(clothes[i][0]);
   }
+
   if (Object.keys(hash).length > 1) {
-    //전체 value 개수 + (key1의 value 개수 * ...keyn의 value 개수 )
+    let mult = 1;
+    for (let key in hash) {
+      mult *= hash[key].length + 1;
+    }
+    answer = mult - 1;
   } else answer = Object.values(hash)[0].length;
   console.log(answer);
 }
